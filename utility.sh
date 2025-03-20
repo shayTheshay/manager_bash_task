@@ -25,8 +25,8 @@ function folder_total_size {
 	echo "The total size of the folder by using du"
 	folder_total_size=$(du -mhs | awk '{print $1}') #du check the data size -mhs mb human summaeize
 	echo $folder_total_size
-
-	if [[ ${folder_total_size%k} -lt 500 ]]; then
+	size_number_folder=$(echo "$folder_total_size" | grep -o '[0-9]*')
+	if [[ $size_number_folder -lt 500 ]]; then
 		echo -e "Hey, please consider deleting some files using\na.Our delete script\nb.Compressing some files"
 	fi
 }
