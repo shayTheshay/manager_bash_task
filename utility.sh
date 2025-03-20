@@ -1,40 +1,30 @@
 #!/bin/bash
 
-
 echo "These are the files by size bigger to smaller"
 ls -lhS | awk 'NR>1 {print $5, $9}' | while read size file; do
-        echo "File:$file, Size:$size"
+        echo "$file, $size"
 done
-
-list_files_asc_size=$(ls -hS)
-
-echo "----------------------"
 
 sort_files_extensions_count=$(ls -X | sed 's/.*\.//' | sort | uniq -c )
-echo "The count of files by extension is:"
-echo $sort_files_extensions_count
+list_file_extensions=$(ls -X | sed 's/.*\.//' | sort | uniq )
 
-echo "The files extensions total sizes are:"
-list_file_extensions=$(ls -X | sed 's/.*\.//' | sort)
 
+echo "The counted files and total size by extension are:"
 declare -A extensions
-
 for ext in $list_file_extensions; do
-	extension[$ext]=0
+	extensions[$ext]=0
 done
-ls -lhS | awk 'NR>1 {print $5, $9}' | while read size file; do
+
+while read size file; do
 	ext=$(echo "$file" | sed 's/.*\.//')
 	extensions[$ext]=$((extensions[$ext] + size))
-	
-done
+done < <(ls -lhS | awk 'NR>1 {print $5, $9}')
 
-for ext in "${!extensions[@]}"; do
-	echo "$ext: ${extensions[$ext]}"
-done
+while read count file_extension; do
+	echo "$count .$file_extension ${extensions[$file_extension]} MB"
+done <<< "$sort_files_extensions_count"
 
-echo "-----------------------"
-
-echo "The total size of the folder is"
+echo "The total size of the folder is by du"
 folder_total_size=$(du -sk | awk '{print $1}')
-
+echo "The total size using
 echo $folder_total_size
