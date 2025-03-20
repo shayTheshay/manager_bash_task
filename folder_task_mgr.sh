@@ -15,7 +15,7 @@ For quitting manager, please choose 0."
 read folder_option
 case $folder_option in
 1 )
-    ./utility.sh ;;
+    ./utility.sh ; read ;;
 2 )
     ./read.sh ;;
 3 )
