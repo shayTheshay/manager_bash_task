@@ -1,7 +1,14 @@
 # manager bash task
 
-## overview
+## Overview
 
+### requirements
+The projects is intended to run on a **LINUX** machine, we specifically ran it on a virtual machine as is required by the course, but any linux machine should suffice
+
+### how to run and download
+To download please use the command `git clone` into your repository, it will download all the .sh files and the temporary files like .txt or .jpeg
+When runnin you should only run the manager file which is called "folder\_task\_mgr.sh" and will run the other scripts with according to user requests.
+You can run the mananger file by running ./folder\_task\_mgr.sh
 ### general information
 The project itself is a small group assignment conducted by one of [appleseeds](https://appleseeds.org.il/) programs, specificaly the `aws re/start` program.
 
@@ -23,7 +30,9 @@ There are 4 main goals for this project:
 
 - Write *modular code* (avoiding spaghetti code) and using a *manager script* to execute other scripts
 
-### `Utility` 
+## Project Details
+
+### `Utility script` 
 Utility focuses on listing items by size.
 it has 3 options for the user:
 - Listing files, sorted desc by size
@@ -40,8 +49,18 @@ it
 ### `Delete script`
 Delete script 
 
-### `Manager process`
+### `Manager script`
 Manager
+
+## Class Diagram
+The project advocates for separation of concerns
+Flow is started by the manager and which activates the other scripts
+```
+graph TD
+   manager-->utility;
+   manager-->read;
+   manager-->delete;	
+```
 
 ## Collaborators
 
