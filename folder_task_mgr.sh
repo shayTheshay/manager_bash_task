@@ -17,9 +17,9 @@ case $folder_option in
 1 )
     ./utility.sh ; read ;;
 2 )
-    ./read.sh ;;
+    ./read.sh ; read ;;
 3 )
-    ./delete.sh ;;
+    ./delete.sh ; read ;;
 0 )
     exit 0 ;;
 * )
