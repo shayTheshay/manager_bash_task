@@ -55,7 +55,7 @@ Manager
 ## Class Diagram
 The project advocates for separation of concerns
 Flow is started by the manager and which activates the other scripts
-```
+```mermaid
 graph TD
    manager-->utility;
    manager-->read;
