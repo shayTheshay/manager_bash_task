@@ -70,5 +70,3 @@ Collaborating personnel include:
 - imad tori
 - eyal golan gluck
 - dikla buchnik
-
-
