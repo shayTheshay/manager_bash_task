@@ -2,8 +2,8 @@
 folder_option="a"
 while [[ $folder_option != 0 ]]
 do
-echo "WELCOME TO FOLDER MANAGER"
-echo "========================="
+echo "WELCOME TO FOLDER MANAGER
+========================="
 echo ""     
 echo "Please choose from following options:
 
